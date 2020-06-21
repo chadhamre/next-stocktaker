@@ -1,0 +1,42 @@
+{
+  "name": "cycle-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify/app-bridge-react": "^1.24.0",
+    "@shopify/koa-shopify-auth": "^3.1.63",
+    "@shopify/koa-shopify-graphql-proxy": "^4.0.0",
+    "@shopify/polaris": "^4.25.0",
+    "@zeit/next-css": "^1.0.1",
+    "apollo-boost": "^0.4.9",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "js-cookie": "^2.2.1",
+    "koa": "^2.12.0",
+    "koa-logger": "^3.2.1",
+    "koa-session": "^6.0.0",
+    "mysql2": "^2.1.0",
+    "next": "^9.4.4",
+    "qrcode.react": "^1.0.0",
+    "react": "^16.13.1",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.13.1",
+    "sequelize": "^5.21.12",
+    "store-js": "^2.0.4",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,8 @@
+# all
+/node_modules
+
+# shopify
+/.next/
+
+# macOS
+.DS_Store
