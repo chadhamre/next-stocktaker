@@ -5,7 +5,7 @@ const AccountModel = require('./models/account')
 dotenv.config()
 
 const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {
-  logging: false,
+  logging: true,
 })
 
 const Account = AccountModel(sequelize, Sequelize)

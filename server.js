@@ -80,6 +80,5 @@ app.prepare().then(() => {
 
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`)
-    console.log(process.env.CLEARDB_DATABASE_URL)
   })
 })
