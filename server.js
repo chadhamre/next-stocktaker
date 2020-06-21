@@ -71,7 +71,7 @@ app.prepare().then(() => {
 
   server.use(graphQLProxy({ version: ApiVersion.October19 }))
   server.use(verifyRequest())
-  server.use(async ctx => {
+  server.use(async (ctx) => {
     await handle(ctx.req, ctx.res)
     ctx.respond = false
     ctx.res.statusCode = 200
@@ -80,5 +80,6 @@ app.prepare().then(() => {
 
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`)
+    console.log(process.env.CLEARDB_DATABASE_URL)
   })
 })
