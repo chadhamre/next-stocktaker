@@ -13,12 +13,7 @@ class Index extends React.Component {
     return (
       <Page>
         <TitleBar />
-        <Layout>
-          <TextStyle variation="positive">
-            Scan this to sign in with our app .
-          </TextStyle>
-          <AuthenticationCode secretCode={this.props.secretCode} />
-        </Layout>
+        <AuthenticationCode secretCode={this.props.secretCode} />
       </Page>
     )
   }
