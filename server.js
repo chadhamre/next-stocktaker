@@ -6,23 +6,27 @@ const { default: createShopifyAuth } = require('@shopify/koa-shopify-auth')
 const { default: graphQLProxy } = require('@shopify/koa-shopify-graphql-proxy')
 const { v4: uuidv4 } = require('uuid')
 const { verifyRequest } = require('@shopify/koa-shopify-auth')
+const { receiveWebhook } = require('@shopify/koa-shopify-webhooks')
 const dotenv = require('dotenv')
 const Koa = require('koa')
 const logger = require('koa-logger')
 const next = require('next')
+const Router = require('koa-router')
 const session = require('koa-session')
 const store = require('store-js')
 
 dotenv.config()
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
+
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env
+const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY, HOST } = process.env
 
 app.prepare().then(() => {
   const server = new Koa()
+  const router = new Router()
 
   server.use(logger())
   server.use(session({ secure: true, sameSite: 'none' }, server))
@@ -69,14 +73,28 @@ app.prepare().then(() => {
     })
   )
 
+  const webhook = receiveWebhook({ secret: SHOPIFY_API_SECRET_KEY })
+
+  router.post('/webhooks/customers/redact', webhook, (ctx) => {
+    console.log('received webhook: ', ctx.state.webhook)
+  })
+  router.post('/webhooks/customers/data_request', webhook, (ctx) => {
+    console.log('received webhook: ', ctx.state.webhook)
+  })
+  router.post('webhooks/shop/redact', webhook, (ctx) => {
+    console.log('received webhook: ', ctx.state.webhook)
+  })
+
   server.use(graphQLProxy({ version: ApiVersion.October19 }))
-  server.use(verifyRequest())
-  server.use(async (ctx) => {
+
+  router.get('/(.*)', verifyRequest(), async (ctx) => {
     await handle(ctx.req, ctx.res)
     ctx.respond = false
     ctx.res.statusCode = 200
-    return
   })
+
+  server.use(router.allowedMethods())
+  server.use(router.routes())
 
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`)
