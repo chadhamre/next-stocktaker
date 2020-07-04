@@ -1,14 +1,23 @@
 import {
+  Card,
+  Heading,
   Layout,
   Page,
-  Card,
-  TextStyle,
-  Heading,
   TextContainer,
+  TextStyle,
 } from '@shopify/polaris'
+import { TitleBar } from '@shopify/app-bridge-react'
 
 const Help = () => (
   <Page>
+    <TitleBar
+      primaryAction={{
+        content: 'Get Help',
+        onAction: () => {
+          window.open('mailto:hello@saskatoonlabs.com?subject=StockTaker')
+        },
+      }}
+    />
     <Layout>
       <Layout.AnnotatedSection
         title="FAQ"

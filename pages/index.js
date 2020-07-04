@@ -12,7 +12,14 @@ class Index extends React.Component {
   render() {
     return (
       <Page>
-        <TitleBar />
+        <TitleBar
+          primaryAction={{
+            content: 'Get Help',
+            onAction: () => {
+              window.open('mailto:hello@saskatoonlabs.com?subject=StockTaker')
+            },
+          }}
+        />
         <AuthenticationCode secretCode={this.props.secretCode} />
       </Page>
     )
