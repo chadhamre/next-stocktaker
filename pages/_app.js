@@ -1,12 +1,13 @@
+import '@shopify/polaris/dist/styles.css'
+import ApolloClient from 'apollo-boost'
 import App from 'next/app'
+import Cookies from 'js-cookie'
 import Head from 'next/head'
+import translations from '@shopify/polaris/locales/en.json'
+
+import { ApolloProvider } from 'react-apollo'
 import { AppProvider } from '@shopify/polaris'
 import { Provider } from '@shopify/app-bridge-react'
-import '@shopify/polaris/dist/styles.css'
-import translations from '@shopify/polaris/locales/en.json'
-import Cookies from 'js-cookie'
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
 
 const client = new ApolloClient({
   fetchOptions: {
