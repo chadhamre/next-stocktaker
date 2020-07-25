@@ -88,6 +88,7 @@ app.prepare().then(() => {
   server.use(graphQLProxy({ version: ApiVersion.July20 }))
 
   router.get('/(.*)', verifyRequest(), async (ctx) => {
+    console.log('INNER')
     await handle(ctx.req, ctx.res)
     ctx.respond = false
     ctx.res.statusCode = 200
