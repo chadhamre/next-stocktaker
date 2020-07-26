@@ -81,7 +81,7 @@ app.prepare().then(() => {
   router.post('/webhooks/customers/data_request', webhook, (ctx) => {
     console.log('received webhook: ', ctx.state.webhook)
   })
-  router.post('webhooks/shop/redact', webhook, (ctx) => {
+  router.post('/webhooks/shop/redact', webhook, (ctx) => {
     console.log('received webhook: ', ctx.state.webhook)
   })
 
