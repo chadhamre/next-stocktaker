@@ -4,7 +4,7 @@ const AccountModel = require('./models/account')
 
 dotenv.config()
 
-const sequelize = new Sequelize(process.env.JAWSDB_URL, {
+const sequelize = new Sequelize(process.env.JAWSDB_COPPER_URL, {
   logging: console.log,
 })
 
