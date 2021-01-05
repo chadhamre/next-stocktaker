@@ -52,6 +52,7 @@ app.prepare().then(() => {
             sameSite: 'none',
           })
           const secretCode = uuidv4()
+          console.log('NEW SECRET CODE', shop, secretCode)
           ctx.cookies.set('secretCode', secretCode, {
             httpOnly: false,
             secure: true,

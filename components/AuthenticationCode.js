@@ -23,6 +23,7 @@ class AuthenticationCode extends React.Component {
       ? this.props.secretCode
       : Cookies.get('secretCode')
     this.setState({ secret: code })
+    console.log('STATE', this.state)
   }
   render() {
     const styles = {
