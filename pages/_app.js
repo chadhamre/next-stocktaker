@@ -4,6 +4,7 @@ import App from 'next/app'
 import Cookies from 'js-cookie'
 import Head from 'next/head'
 import translations from '@shopify/polaris/locales/en.json'
+import React from 'react'
 
 import { ApolloProvider } from 'react-apollo'
 import { AppProvider } from '@shopify/polaris'

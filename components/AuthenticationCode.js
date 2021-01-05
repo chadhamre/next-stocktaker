@@ -10,6 +10,7 @@ import {
 var QRCode = require('qrcode.react')
 import Cookies from 'js-cookie'
 import MobileStoreButton from 'react-mobile-store-button'
+import React from 'react'
 
 class AuthenticationCode extends React.Component {
   constructor(props) {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Layout, Page, TextStyle } from '@shopify/polaris'
 import { TitleBar } from '@shopify/app-bridge-react'
 import AuthenticationCode from '../components/AuthenticationCode'
