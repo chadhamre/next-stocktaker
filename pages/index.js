@@ -6,7 +6,7 @@ import AuthenticationCode from '../components/AuthenticationCode'
 class Index extends React.Component {
   static async getInitialProps() {
     const secretCode = store.get('secretCode')
-    console.log('STORE', store)
+    console.log('STORE', 'store.get(secretCode)', secretCode)
     return { secretCode }
   }
 
