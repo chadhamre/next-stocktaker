@@ -19,12 +19,10 @@ class AuthenticationCode extends React.Component {
   }
 
   componentDidMount() {
-    const code = this.props.secretCode
-      ? this.props.secretCode
-      : Cookies.get('secretCode')
+    console.log('COOKIES', Cookies.get('shopOrigin'), Cookies.get('secretCode'))
+    const code = Cookies.get('secretCode')
     this.setState({ secret: code })
     console.log('STATE', this.state)
-    console.log('COOKIES', Cookies.get('shopOrigin'), Cookies.get('secretCode'))
   }
   render() {
     const styles = {

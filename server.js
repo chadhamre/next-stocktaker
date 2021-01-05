@@ -13,7 +13,6 @@ const logger = require('koa-logger')
 const next = require('next')
 const Router = require('koa-router')
 const session = require('koa-session')
-const store = require('store-js')
 
 dotenv.config()
 const port = parseInt(process.env.PORT, 10) || 3000
@@ -64,7 +63,6 @@ app.prepare().then(() => {
             shopifyTokenExpiresAt: _expire,
             cycleToken: secretCode,
           })
-          store.set('secretCode', secretCode)
         } catch (err) {
           console.log(err)
         }

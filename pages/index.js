@@ -4,12 +4,6 @@ import store from 'store-js'
 import AuthenticationCode from '../components/AuthenticationCode'
 
 class Index extends React.Component {
-  static async getInitialProps() {
-    const secretCode = store.get('secretCode')
-    console.log('STORE', 'store.get(secretCode)', secretCode)
-    return { secretCode }
-  }
-
   render() {
     return (
       <Page>
@@ -21,7 +15,7 @@ class Index extends React.Component {
             },
           }}
         />
-        <AuthenticationCode secretCode={this.props.secretCode} />
+        <AuthenticationCode />
       </Page>
     )
   }
