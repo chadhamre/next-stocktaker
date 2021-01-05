@@ -8,7 +8,6 @@ import {
   TextContainer,
 } from '@shopify/polaris'
 var QRCode = require('qrcode.react')
-import store from 'store-js'
 import Cookies from 'js-cookie'
 import MobileStoreButton from 'react-mobile-store-button'
 
